@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rome Together - Find Travel Companions & Book Your Dream Vacation</title>
+    <link rel="icon" href="photos/WhatsApp Image 2025-04-09 at 12.40.17.jpeg" type="image/jpeg">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e63946;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            color: #e63946;
+            font-size: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e63946;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-outline {
+            border: 2px solid #e63946;
+            color: #e63946;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: #e63946;
+            color: #fff;
+        }
+
+        .btn-primary {
+            background-color: #e63946;
+            color: #fff;
+            border: 2px solid #e63946;
+        }
+
+        .btn-primary:hover {
+            background-color: #d62b3c;
+            border-color: #d62b3c;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search Form */
+        .search-container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: -50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .search-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab.active {
+            border-bottom-color: #e63946;
+            color: #e63946;
+            font-weight: 500;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .search-btn {
+            background-color: #e63946;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .search-btn:hover {
+            background-color: #d62b3c;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #e63946;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: #e63946;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 15px;
+        }
+
+        /* Solo Connect Section */
+        .solo-connect {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .companions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .companion-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .companion-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .companion-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .companion-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .companion-info {
+            padding: 20px;
+        }
+
+        .companion-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .companion-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .companion-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .connect-btn {
+            display: inline-block;
+            background-color: #e63946;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .connect-btn:hover {
+            background-color: #d62b3c;
+        }
+
+        /* Experiences Section */
+        .experiences {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+
+        .experiences-slider {
+            margin-top: 40px;
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 0 30px;
+            scrollbar-width: thin;
+        }
+
+        .experience-card {
+            flex: 0 0 auto;
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .experience-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .experience-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .experience-info {
+            padding: 20px;
+        }
+
+        .experience-info h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            color: #e63946;
+            margin-top: 10px;
+        }
+
+        .rating {
+            color: #ffa41b;
+            margin-bottom: 10px;
+        }
+
+        /* Success Stories */
+        .success-stories {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .story-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .quote {
+            font-size: 22px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 40px;
+            color: #e0e0e0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #e63946;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: #e63946;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #444;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #e63946;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        /* Login/Signup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .modal-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+        }
+
+        .modal-tab.active {
+            border-bottom: 2px solid #e63946;
+            color: #e63946;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-footer {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .form-footer p {
+            margin-top: 15px;
+            color: #666;
+        }
+
+        .form-footer a {
+            color: #e63946;
+            text-decoration: none;
+        }
+
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .form-group {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">✈️</span> Rome Together
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Flights</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Activities</a></li>
+                    <li><a href="#">Find Companions</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-outline" id="loginBtn">Login</button>
+                <button class="btn btn-primary" id="signupBtn">Sign Up</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Never Travel Alone Again</h1>
+            <p>Book your dream trip to Rome and connect with like-minded travelers or friendly locals to explore the Eternal City together.</p>
+            <a href="#" class="btn btn-primary">Start Your Journey</a>
+        </div>
+    </section>
+
+    <!-- Search Form -->
+    <div class="container">
+        <div class="search-container">
+            <div class="search-tabs">
+                <div class="tab active" data-tab="flights">Flights</div>
+                <div class="tab" data-tab="hotels">Hotels</div>
+                <div class="tab" data-tab="activities">Activities</div>
+                <div class="tab" data-tab="companions">Find Companions</div>
+            </div>
+            
+            <form class="search-form" id="flightsForm">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="From">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="To">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Departure">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Return">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Travelers">
+                </div>
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+            
+            <form class="search-form" id="hotelsForm" style="display: none;">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Destination">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Check-in">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Check-out">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Rooms">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Guests">
+                </div>
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+            
+            <form class="search-form" id="activitiesForm" style="display: none;">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search Activities">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Date">
+                </div>
+                <div class="form-group">
+                    <select class="form-control">
+                        <option value="">Category</option>
+                        <option value="tours">Tours</option>
+                        <option value="museums">Museums</option>
+                        <option value="food">Food & Drinks</option>
+                        <option value="outdoor">Outdoor</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Participants">
+                </div>
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+            
+            <form class="search-form" id="companionsForm" style="display: none;">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Destination">
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" placeholder="Date">
+                </div>
+                <div class="form-group">
+                    <select class="form-control">
+                        <option value="">Interest</option>
+                        <option value="history">History</option>
+                        <option value="food">Food</option>
+                        <option value="art">Art</option>
+                        <option value="nightlife">Nightlife</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control">
+                        <option value="">Type</option>
+                        <option value="local">Local Guide</option>
+                        <option value="traveler">Fellow Traveler</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-btn">Find</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">How Rome Together Works</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✈️</div>
+                    <h3>Book Travel</h3>
+                    <p>Secure flights, accommodations, and activities for your Roman adventure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <h3>Create Profile</h3>
+                    <p>Detail your interests and travel preferences to find compatible companions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3>Browse Companions</h3>
+                    <p>Find locals or other travelers with compatible interests in Rome.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Connect</h3>
+                    <p>Message potential companions and plan activities together.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗿</div>
+                    <h3>Meet & Explore</h3>
+                    <p>Enjoy exploring Rome together with your new companion.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Rate & Review</h3>
+                    <p>Share feedback on both services and companions after your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solo Connect Section -->
+    <section class="solo-connect">
+        <div class="container">
+            <h2 class="section-title">Find Your Perfect Rome Companion</h2>
+            <div class="companions-grid">
+                <div class="companion-card">
+                    <div class="companion-image">
+                        <img src="photos/WhatsApp Image 2025-04-09 at 12.26.24 (1).jpeg" alt="Marco">
+                    </div>
+                    <div class="companion-info">
+                        <h3>Manideep, 20</h3>
+                        <p>Local Roman, art history enthusiast</p>
+                        <div class="companion-tags">
+                            <span class="tag">Art</span>
+                            <span class="tag">History</span>
+                            <span class="tag">Museums</span>
+                        </div>
+                        <p>"I love showing visitors the hidden gems of Rome that tourists often miss."</p>
+                        <a href="#" class="connect-btn">Connect</a>
+                    </div>
+                </div>
+                <div class="companion-card">
+                    <div class="companion-image">
+                        <img src="photos/WhatsApp Image 2025-04-09 at 12.26.24.jpeg" alt="Sofia">
+                    </div>
+                    <div class="companion-info">
+                        <h3>Sreeshanth, 28</h3>
+                        <p>Foodie local with passion for Roman cuisine</p>
+                        <div class="companion-tags">
+                            <span class="tag">Food</span>
+                            <span class="tag">Cooking</span>
+                            <span class="tag">Markets</span>
+                        </div>
+                        <p>"Let me take you on a culinary journey through authentic Roman trattorias."</p>
+                        <a href="#" class="connect-btn">Connect</a>
+                    </div>
+                </div>
+                <div class="companion-card">
+                    <div class="companion-image">
+                        <img src="photos/WhatsApp Image 2025-04-09 at 12.26.25.jpeg" alt="Alex">
+                    </div>
+                    <div class="companion-info">
+                        <h3>hrudaya, 20</h3>
+                        <p>American photographer visiting Rome</p>
+                        <div class="companion-tags">
+                            <span class="tag">Photography</span>
+                            <span class="tag">Architecture</span>
+                            <span class="tag">Walking</span>
+                        </div>
+                        <p>"Looking for fellow travelers to capture the beauty of Rome through our lenses."</p>
+                        <a href="#" class="connect-btn">Connect</a>
+                    </div>
+                </div>
+                <div class="companion-card">
+                    <div class="companion-image">
+                        <img src="photos/WhatsApp Image 2025-04-09 at 12.27.21.jpeg" alt="Giulia">
+                    </div>
+                    <div class="companion-info">
+                        <h3>Saketh 26</h3>
+                        <p>Local nightlife enthusiast</p>
+                        <div class="companion-tags">
+                            <span class="tag">Nightlife</span>
+                            <span class="tag">Music</span>
+                            <span class="tag">Dancing</span>
+                        </div>
+                        <p>"Experience Rome after dark with the best bars, clubs and live music venues."</p>
+                        <a href="#" class="connect-btn">Connect</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section class="experiences">
+        <div class="container">
+            <h2 class="section-title">Trending Rome Experiences</h2>
+            <div class="experiences-slider">
+                <div class="experience-card">
+                    <div class="experience-image">
+                        <img src="/api/placeholder/300/180" alt="Colosseum">
+                    </div>
+                    <div class="experience-info">
+                        <div class="rating">★★★★★</div>
+                        <h3>Skip-the-Line Colosseum Tour</h3>
+                        <p>Guided tour of the Colosseum, Roman Forum & Palatine Hill</p>
+                        <div class="price">3000 per person</div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-image">
+                        <img src="/api/placeholder/300/180" alt="Pasta Making">
+                    </div>
+                    <div class="experience-info">
+                        <div class="rating">★★★★★</div>
+                        <h3>Pasta Making Class</h3>
+                        <p>Learn to make authentic pasta with a local chef</p>
+                        <div class="price">4500 per person</div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-image">
+                        <img src="/api/placeholder/300/180" alt="Vespa Tour">
+                    </div>
+                    <div class="experience-info">
+                        <div class="rating">★★★★☆</div>
+                        <h3>Vespa Tour of Rome</h3>
+                        <p>See Rome like a local on a guided Vespa tour</p>
+                        <div class="price">3000 per person</div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-image">
+                        <img src="/api/placeholder/300/180" alt="Vatican">
+                    </div>
+                    <div class="experience-info">
+                        <div class="rating">★★★★★</div>
+                        <h3>Early Access Vatican Tour</h3>
+                        <p>Beat the crowds with early morning access</p>
+                        <div class="price">2000 per person</div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-image">
+                        <img src="/api/placeholder/300/180" alt="Wine Tasting">
+                    </div>
+                    <div class="experience-info">
+                        <div class="rating">★★★★☆</div>
+                        <h3>Wine Tasting Experience</h3>
+                        <p>Sample the finest Italian wines with expert sommelier</p>
+                        <div class="price">1000 per person</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="container">
+            <h2 class="section-title">Success Stories</h2>
+            <div class="story-card">
+                <div class="quote-icon">"</div>
+                <p class="quote">I was traveling solo to Rome and was hesitant about exploring alone. Thanks to Rome Together, I met Marco who showed me hidden gems I would have never found in guidebooks. It completely transformed my trip!</p>
+                <div class="author">
+                    <div class="author-image">
+                        <img src="/api/placeholder/60/60" alt="Sarah">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah J.</h4>
+                        <p>from Canada</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Rome Together</h3>
+                    <p>Connect with travelers and locals to explore Rome together. Never experience the Eternal City alone again.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">f</a>
+                        <a href="#" class="social-icon">t</a>
+                        <a href="#" class="social-icon">in</a>
+                        <a href="#" class="social-icon">ig</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Book Flights</a></li>
+                        <li><a href="#">Book Hotels</a></li>
+                        <li><a href="#">Experiences</a></li>
+                        <li><a href="#">Find Companions</a></li>
+                        <li><a href="#">Airport Transfers</a></li>
+                        <li><a href="#">Group Tours</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Safety Tips</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rome Together. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-tabs">
+                <div class="modal-tab active" data-form="loginForm">Login</div>
+                <div class="modal-tab" data-form="signupForm">Sign Up</div>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="input-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                    <p>Forgot password? <a href="#">Reset it here</a></p>
+                </div>
+            </form>
+            <form id="signupForm" style="display: none;">
+                <div class="input-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="input-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="input-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="input-group">
+                    <label for="signupConfirm">Confirm Password</label>
+                    <input type="password" id="signupConfirm" required>
+                </div>
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+                    <p>By signing up, you agree to our <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality for search form
+        const searchTabs = document.querySelectorAll('.search-tabs .tab');
+        const searchForms = document.querySelectorAll('.search-form');
+        
+        searchTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                searchTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Hide all forms
+                searchForms.forEach(form => form.style.display = 'none');
+                // Show the matching form
+                const formId = tab.getAttribute('data-tab') + 'Form';
+                document.getElementById(formId).style.display = 'flex';
+            });
+        });
+
+        // Login/Signup Modal functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.querySelector('.close-modal');
+        const modalTabs = document.querySelectorAll('.modal-tab');
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+
+        // Open modal
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+            showModalForm('loginForm');
+        });
+
+        signupBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+            showModalForm('signupForm');
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+
+        // Tab switching in modal
+        modalTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                modalTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show the corresponding form
+                showModalForm(tab.getAttribute('data-form'));
+            });
+        });
+
+        function showModalForm(formId) {
+            loginForm.style.display = 'none';
+            signupForm.style.display = 'none';
+            document.getElementById(formId).style.display = 'block';
+        }
+
+        // Form submission handling
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would normally handle the login API call
+            alert('Login functionality would be implemented here!');
+            loginModal.style.display = 'none';
+        });
+
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would normally handle the signup API call
+            alert('Sign up functionality would be implemented here!');
+            loginModal.style.display = 'none';
+        });
+
+        // For demonstration purposes - simulate experiences slider movement
+        const experiencesSlider = document.querySelector('.experiences-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        experiencesSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - experiencesSlider.offsetLeft;
+            scrollLeft = experiencesSlider.scrollLeft;
+        });
+
+        experiencesSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        experiencesSlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        experiencesSlider.addEventListener('mousemove', (e) => {
+            if(!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - experiencesSlider.offsetLeft;
+            const walk = (x - startX) * 2;
+            experiencesSlider.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+</body>
+</html>
